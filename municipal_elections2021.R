@@ -18,11 +18,10 @@ election_2021 <- read_excel("data/election_2021.xlsx")
 #                          levels = c("პირველი ტური", "მეორე ტური"))
 
 
-tg_p_voting <- ggplot(election_2021, aes(time , region, fill =percentage)) +
-  geom_tile() +
-  geom_text(aes(label = percentage), size = 3)+
+tg_p_voting <- ggplot(election_2021, aes(time , region)) +
+  geom_tile(aes(fill =percentage)) +
+  geom_text(aes(label = percentage), size = 3,  color = "black", show.legend = FALSE)+
   theme_gray(base_family="Sylfaen")+
-  
   scale_fill_viridis(option = "plasma", direction = -1,
                      begin = 0, end = 1, discrete=FALSE)+
   theme_ipsum(base_family="Sylfaen") +
@@ -36,7 +35,7 @@ tg_p_voting <- ggplot(election_2021, aes(time , region, fill =percentage)) +
         legend.text=element_text(size=12))+
   labs(title = "",
        subtitle ="",
-       caption = "წყარო:ცენტრალური საარჩევნო კომისიის (ცესკო)",
+       caption = "წყარო: ცენტრალური საარჩევნო კომისიის (ცესკო)",
        color="")+
   xlab("")+
   ylab("რეგიონი")+ 
